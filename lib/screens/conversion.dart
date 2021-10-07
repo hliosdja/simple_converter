@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 //custom import
 import 'package:simple_converter/classes/icons_button.dart' as icon_button;
+import 'package:simple_converter/screens/calculation.dart';
 
 class Conversion extends StatelessWidget {
   const Conversion({Key? key}) : super(key: key);
@@ -10,6 +11,10 @@ class Conversion extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text('Converter'),
+        ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -28,14 +33,26 @@ class Conversion extends StatelessWidget {
                     icon: Icons.straighten_sharp,
                     label: 'Length',
                     onTap: () {
-                      print('pressed length');
+                      debugPrint('pressed length');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputPage(unit: 'Length'),
+                        ),
+                      );
                     },
                   ),
                   icon_button.IconButton(
                     icon: Icons.thermostat_sharp,
                     label: 'Temperature',
                     onTap: () {
-                      print('pressed temp');
+                      debugPrint('pressed temp');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputPage(unit: 'Temperature'),
+                        ),
+                      );
                     },
                   ),
                 ],
@@ -49,14 +66,26 @@ class Conversion extends StatelessWidget {
                     icon: Icons.monitor_weight_sharp,
                     label: 'Mass',
                     onTap: () {
-                      print('pressed mass');
+                      debugPrint('pressed mass');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputPage(unit: 'Mass'),
+                        ),
+                      );
                     },
                   ),
                   icon_button.IconButton(
                     icon: Icons.speed,
                     label: 'Speed',
                     onTap: () {
-                      print('pressed speed');
+                      debugPrint('pressed speed');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputPage(unit: 'Speed'),
+                        ),
+                      );
                     },
                   ),
                 ],
@@ -70,14 +99,27 @@ class Conversion extends StatelessWidget {
                     icon: Icons.bolt_sharp,
                     label: 'Frequency',
                     onTap: () {
-                      print('pressed frequency');
+                      debugPrint('pressed frequency');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputPage(unit: 'Frequency'),
+                        ),
+                      );
                     },
                   ),
                   icon_button.IconButton(
                     icon: Icons.storage_sharp,
                     label: 'Digital Storage',
                     onTap: () {
-                      print('pressed storage');
+                      debugPrint('pressed storage');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              InputPage(unit: 'Digital Storage'),
+                        ),
+                      );
                     },
                   ),
                 ],

@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
 import 'package:flutter/material.dart';
 
 class IconButton extends StatelessWidget {
@@ -25,8 +26,12 @@ class IconButton extends StatelessWidget {
               Icon(
                 icon,
                 size: 70.0,
+                color: Colors.grey[800],
               ),
-              Text(label),
+              Text(
+                label,
+                style: TextStyle(color: Colors.grey[800]),
+              ),
             ],
           ),
         ),
