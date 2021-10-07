@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 //custom import
 import 'package:simple_converter/classes/icons_button.dart' as icon_button;
-import 'package:simple_converter/screens/calculation.dart';
+import 'package:simple_converter/screens/input_page.dart';
 
 class Conversion extends StatelessWidget {
   const Conversion({Key? key}) : super(key: key);
