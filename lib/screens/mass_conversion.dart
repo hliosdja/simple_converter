@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_constructors_in_immutables
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_constructors_in_immutables, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,35 +7,36 @@ import 'package:simple_converter/classes/calculation.dart';
 
 //initialization
 ConverterCalculator converterCalculator = ConverterCalculator();
-TextEditingController firstController = TextEditingController()..text = '69';
+UnitLists unitLists = UnitLists();
 
-class InputPage extends StatefulWidget {
-  InputPage({required this.unit});
+class MassConversion extends StatefulWidget {
+  MassConversion({required this.unit});
 
   final String unit;
 
   @override
-  _InputPageState createState() => _InputPageState();
+  _MassConversionState createState() => _MassConversionState();
 }
 
-class _InputPageState extends State<InputPage> {
+class _MassConversionState extends State<MassConversion> {
   //variables
   List<DropdownMenuItem> dropdownItems = [];
-  String firstUnit = 'Milimeter';
-  String secondUnit = 'Centimeter';
+  List<dynamic> list = [];
+  late String firstUnit = 'Gram';
+  late String secondUnit = 'Kilogram';
+  String unitHeader = '';
   late String firstValue;
   late String secondValue;
-  String unitHeader = '';
+  var firstController = TextEditingController();
+  var secondController = TextEditingController();
 
   //functions
   void createDropdownItems() {
-    for (dynamic unit in lengthUnits) {
-      dropdownItems.add(
-        DropdownMenuItem(
-          child: Text(unit),
-          value: unit,
-        ),
-      );
+    for (dynamic unit in massUnits) {
+      dropdownItems.add(DropdownMenuItem(
+        child: Text(unit),
+        value: unit,
+      ));
     }
   }
 
@@ -47,8 +48,8 @@ class _InputPageState extends State<InputPage> {
   @override
   void initState() {
     super.initState();
-    createDropdownItems();
     updateUI(widget.unit);
+    createDropdownItems();
   }
 
   @override
@@ -57,9 +58,13 @@ class _InputPageState extends State<InputPage> {
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             leading: BackButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {
+                dropdownItems.clear();
+                Navigator.pop(context);
+              },
             ),
             centerTitle: true,
             title: Text('Converter'),
@@ -80,16 +85,11 @@ class _InputPageState extends State<InputPage> {
                 //First TextField
                 TextField(
                   controller: firstController,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
-                  ],
                   keyboardType: TextInputType.number,
                   onChanged: (value) {
-                    debugPrint(value);
                     setState(() {
                       firstValue = value;
-                      firstController.text = firstValue;
-                      secondValue = converterCalculator.convert(
+                      secondController.text = converterCalculator.convert(
                           unitOfMeasure: widget.unit,
                           input: firstValue,
                           unit1: firstUnit,
@@ -112,10 +112,10 @@ class _InputPageState extends State<InputPage> {
                   value: firstUnit,
                   items: dropdownItems,
                   onChanged: (dynamic value) {
-                    debugPrint('firstUnit: $value');
+                    print('firstUnit: $value');
                     setState(() {
                       firstUnit = value;
-                      secondValue = converterCalculator.convert(
+                      secondController.text = converterCalculator.convert(
                           unitOfMeasure: widget.unit,
                           input: firstValue,
                           unit1: firstUnit,
@@ -130,19 +130,17 @@ class _InputPageState extends State<InputPage> {
 
                 //Second TextField
                 TextField(
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
-                  ],
+                  controller: secondController,
                   keyboardType: TextInputType.number,
                   onChanged: (value) {
-                    debugPrint(value);
                     setState(() {
                       secondValue = value;
-                      firstValue = converterCalculator.convert(
+                      print(secondValue);
+                      firstController.text = converterCalculator.convert(
                           unitOfMeasure: widget.unit,
-                          input: firstValue,
-                          unit1: firstUnit,
-                          unit2: secondUnit);
+                          input: secondValue,
+                          unit1: secondUnit,
+                          unit2: firstUnit);
                     });
                   },
                   decoration: InputDecoration(
@@ -161,10 +159,10 @@ class _InputPageState extends State<InputPage> {
                   value: secondUnit,
                   items: dropdownItems,
                   onChanged: (dynamic value) {
-                    debugPrint('secondUnit: $value');
+                    print('secondUnit: $value');
                     setState(() {
                       secondUnit = value;
-                      secondValue = converterCalculator.convert(
+                      secondController.text = converterCalculator.convert(
                           unitOfMeasure: widget.unit,
                           input: firstValue,
                           unit1: firstUnit,

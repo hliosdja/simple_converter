@@ -45,3 +45,22 @@ const List<String> storageUnits = [
   'Terabyte',
   'Petabyte'
 ];
+
+class UnitLists {
+  List unitSelector(String unitSelected) {
+    switch (unitSelected) {
+      case 'Length':
+        return lengthUnits;
+      case 'Temperature':
+        return temperatureUnits;
+      case 'Mass':
+        return massUnits;
+      case 'Speed':
+        return speedUnits;
+      case 'Frequency':
+        return frequencyUnits;
+      default:
+        return storageUnits;
+    }
+  }
+}

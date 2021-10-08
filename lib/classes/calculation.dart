@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:simple_converter/classes/length.dart';
+import 'package:simple_converter/classes/temperature.dart';
+import 'package:simple_converter/classes/mass.dart';
+import 'package:simple_converter/classes/speed.dart';
 
 Length length = Length();
+Temperature temp = Temperature();
+Mass mass = Mass();
+Speed speed = Speed();
 
 class ConverterCalculator {
   String convert(
@@ -9,10 +15,13 @@ class ConverterCalculator {
       required String input,
       required String unit1,
       required String unit2}) {
-    double conversionInput = double.parse(input);
-    String output;
-    if (input == '') {
-      output = '';
+    double conversionInput;
+    if (input.isEmpty) {
+      print('it is empty');
+      return input;
+    } else {
+      print('double parsed');
+      conversionInput = double.parse(input);
     }
 
     debugPrint('convert function called');
@@ -29,10 +38,21 @@ class ConverterCalculator {
       required double input,
       required String bottomUnit}) {
     debugPrint('computeConvert function called');
+    print(input);
     switch (unitOfmeasure) {
       case 'Length':
         return length.convertLength(
             unit1: topUnit, input: input, unit2: bottomUnit);
+      case 'Temperature':
+        return temp.convertTemperature(
+            unit1: topUnit, input: input, unit2: bottomUnit);
+      case 'Mass':
+        return mass.convertMass(
+            unit1: topUnit, input: input, unit2: bottomUnit);
+      case 'Speed':
+        return speed.convertSpeed(
+            unit1: topUnit, input: input, unit2: bottomUnit);
+
       default:
         return '';
     }

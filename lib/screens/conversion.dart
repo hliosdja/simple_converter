@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 //custom import
 import 'package:simple_converter/classes/icons_button.dart' as icon_button;
-import 'package:simple_converter/screens/input_page.dart';
+import 'package:simple_converter/screens/length_conversion.dart';
+import 'package:simple_converter/screens/temperature_conversion.dart';
+import 'package:simple_converter/screens/mass_conversion.dart';
+import 'package:simple_converter/screens/speed_conversion.dart';
+import 'package:simple_converter/screens/frequency_conversion.dart';
+import 'package:simple_converter/screens/storage_conversion.dart';
 
 class Conversion extends StatelessWidget {
   const Conversion({Key? key}) : super(key: key);
@@ -37,7 +42,8 @@ class Conversion extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => InputPage(unit: 'Length'),
+                          builder: (context) =>
+                              LengthConversion(unit: 'Length'),
                         ),
                       );
                     },
@@ -50,7 +56,8 @@ class Conversion extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => InputPage(unit: 'Temperature'),
+                          builder: (context) =>
+                              TemperatureConversion(unit: 'Temperature'),
                         ),
                       );
                     },
@@ -70,7 +77,7 @@ class Conversion extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => InputPage(unit: 'Mass'),
+                          builder: (context) => MassConversion(unit: 'Mass'),
                         ),
                       );
                     },
@@ -83,7 +90,7 @@ class Conversion extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => InputPage(unit: 'Speed'),
+                          builder: (context) => SpeedConversion(unit: 'Speed'),
                         ),
                       );
                     },
@@ -103,7 +110,8 @@ class Conversion extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => InputPage(unit: 'Frequency'),
+                          builder: (context) =>
+                              FrequencyConversion(unit: 'Frequency'),
                         ),
                       );
                     },
@@ -117,7 +125,7 @@ class Conversion extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              InputPage(unit: 'Digital Storage'),
+                              StorageConversion(unit: 'Digital Storage'),
                         ),
                       );
                     },
