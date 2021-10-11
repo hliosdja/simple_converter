@@ -56,8 +56,9 @@ class _MassConversionState extends State<MassConversion> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: GestureDetector(
-        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+        onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
+          extendBodyBehindAppBar: true,
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             leading: BackButton(
@@ -112,7 +113,6 @@ class _MassConversionState extends State<MassConversion> {
                   value: firstUnit,
                   items: dropdownItems,
                   onChanged: (dynamic value) {
-                    print('firstUnit: $value');
                     setState(() {
                       firstUnit = value;
                       secondController.text = converterCalculator.convert(
@@ -135,7 +135,6 @@ class _MassConversionState extends State<MassConversion> {
                   onChanged: (value) {
                     setState(() {
                       secondValue = value;
-                      print(secondValue);
                       firstController.text = converterCalculator.convert(
                           unitOfMeasure: widget.unit,
                           input: secondValue,
@@ -159,7 +158,6 @@ class _MassConversionState extends State<MassConversion> {
                   value: secondUnit,
                   items: dropdownItems,
                   onChanged: (dynamic value) {
-                    print('secondUnit: $value');
                     setState(() {
                       secondUnit = value;
                       secondController.text = converterCalculator.convert(

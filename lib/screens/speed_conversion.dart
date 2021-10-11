@@ -58,6 +58,7 @@ class _SpeedConversionState extends State<SpeedConversion> {
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: Scaffold(
+          extendBodyBehindAppBar: true,
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             leading: BackButton(
@@ -112,7 +113,6 @@ class _SpeedConversionState extends State<SpeedConversion> {
                   value: firstUnit,
                   items: dropdownItems,
                   onChanged: (dynamic value) {
-                    print('firstUnit: $value');
                     setState(() {
                       firstUnit = value;
                       secondController.text = converterCalculator.convert(
@@ -135,7 +135,6 @@ class _SpeedConversionState extends State<SpeedConversion> {
                   onChanged: (value) {
                     setState(() {
                       secondValue = value;
-                      print(secondValue);
                       firstController.text = converterCalculator.convert(
                           unitOfMeasure: widget.unit,
                           input: secondValue,
@@ -159,7 +158,6 @@ class _SpeedConversionState extends State<SpeedConversion> {
                   value: secondUnit,
                   items: dropdownItems,
                   onChanged: (dynamic value) {
-                    print('secondUnit: $value');
                     setState(() {
                       secondUnit = value;
                       secondController.text = converterCalculator.convert(

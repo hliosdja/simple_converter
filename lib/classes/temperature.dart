@@ -4,25 +4,25 @@ class Temperature {
     if
         //Celsius
         (unit1 == 'Celsius' && unit2 == 'Fahrenheit') {
-      return ((input * 9 / 5) + 32).toString();
+      return ((input * 9 / 5) + 32).toStringAsPrecision(2);
     } else if (unit1 == 'Celsius' && unit2 == 'Kelvin') {
-      return (input + 273.15).toString();
+      return (input + 273.15).toStringAsPrecision(2);
     }
     //Fahrenheit
     else if (unit1 == 'Fahrenheit' && unit2 == 'Celsius') {
-      return ((input - 32) * 5 / 9).toString();
+      return ((input - 32) * 5 / 9).toStringAsPrecision(2);
     } else if (unit1 == 'Fahrenheit' && unit2 == 'Kelvin') {
-      return ((input - 32) * 5 / 9 + 273.15).toString();
+      return ((input - 32) * 5 / 9 + 273.15).toStringAsPrecision(2);
     }
     //Kelvin
     else if (unit1 == 'Kelvin' && unit2 == 'Celsius') {
-      return (input - 273.15).toString();
+      return (input - 273.15).toStringAsPrecision(2);
     } else if (unit1 == 'Kelvin' && unit2 == 'Fahrenheit') {
-      return ((input - 273.15) * 9 / 5 + 32).toString();
+      return ((input - 273.15) * 9 / 5 + 32).toStringAsPrecision(2);
     }
     //default
     else {
-      return input.toString();
+      return input.toStringAsPrecision(2);
     }
   }
 }

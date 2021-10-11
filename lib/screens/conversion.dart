@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 //custom import
 import 'package:simple_converter/classes/icons_button.dart' as icon_button;
+
+//imported screens
 import 'package:simple_converter/screens/length_conversion.dart';
 import 'package:simple_converter/screens/temperature_conversion.dart';
 import 'package:simple_converter/screens/mass_conversion.dart';
@@ -16,6 +18,7 @@ class Conversion extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           centerTitle: true,
           title: const Text('Converter'),

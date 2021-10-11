@@ -21,10 +21,8 @@ class ConverterCalculator {
       required String unit2}) {
     double conversionInput;
     if (input.isEmpty) {
-      print('it is empty');
       return input;
     } else {
-      print('double parsed');
       conversionInput = double.parse(input);
     }
 
@@ -42,7 +40,6 @@ class ConverterCalculator {
       required double input,
       required String bottomUnit}) {
     debugPrint('computeConvert function called');
-    print(input);
     switch (unitOfmeasure) {
       case 'Length':
         return length.convertLength(
