@@ -32,14 +32,8 @@ const List<String> frequencyUnits = [
 ];
 
 const List<String> storageUnits = [
-  'Bit',
-  'Kilobit',
-  'Megabit',
-  'Gigabit',
-  'Terabit',
-  'Petabit',
   'Byte',
-  'KiloByte',
+  'Kilobyte',
   'Megabyte',
   'Gigabyte',
   'Terabyte',

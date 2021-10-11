@@ -22,8 +22,8 @@ class _StorageConversionState extends State<StorageConversion> {
   //variables
   List<DropdownMenuItem> dropdownItems = [];
   List<dynamic> list = [];
-  late String firstUnit = 'Bit';
-  late String secondUnit = 'Byte';
+  late String firstUnit = 'Byte';
+  late String secondUnit = 'Kilobyte';
   String unitHeader = '';
   late String firstValue;
   late String secondValue;

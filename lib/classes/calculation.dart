@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:simple_converter/classes/length.dart';
+import 'package:simple_converter/classes/storage.dart';
 import 'package:simple_converter/classes/temperature.dart';
 import 'package:simple_converter/classes/mass.dart';
 import 'package:simple_converter/classes/speed.dart';
+import 'package:simple_converter/classes/frequency.dart';
 
 Length length = Length();
 Temperature temp = Temperature();
 Mass mass = Mass();
 Speed speed = Speed();
+Frequency frequency = Frequency();
+Storage storage = Storage();
 
 class ConverterCalculator {
   String convert(
@@ -52,9 +56,12 @@ class ConverterCalculator {
       case 'Speed':
         return speed.convertSpeed(
             unit1: topUnit, input: input, unit2: bottomUnit);
-
+      case 'Frequency':
+        return frequency.convertFrequency(
+            unit1: topUnit, input: input, unit2: bottomUnit);
       default:
-        return '';
+        return storage.convertStorage(
+            unit1: topUnit, input: input, unit2: bottomUnit);
     }
   }
 }
