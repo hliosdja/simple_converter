@@ -4,27 +4,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:simple_converter/constants/units.dart';
 import 'package:simple_converter/classes/calculation.dart';
+import 'package:simple_converter/constants/dropdown_handler.dart';
 
 //initialization
 ConverterCalculator converterCalculator = ConverterCalculator();
-UnitLists unitLists = UnitLists();
+DropdownGenerator dropdownGenerator = DropdownGenerator();
 
-class FrequencyConversion extends StatefulWidget {
-  FrequencyConversion({required this.unit});
+class InputPage extends StatefulWidget {
+  InputPage({required this.unit});
 
   final String unit;
 
   @override
-  _FrequencyConversionState createState() => _FrequencyConversionState();
+  _InputPageState createState() => _InputPageState();
 }
 
-class _FrequencyConversionState extends State<FrequencyConversion> {
+class _InputPageState extends State<InputPage> {
   //variables
   List<DropdownMenuItem> dropdownItems = [];
-  List<dynamic> list = [];
-  late String firstUnit = 'Hertz';
-  late String secondUnit = 'Kilohertz';
   String unitHeader = '';
+  late String firstUnit;
+  late String secondUnit;
   late String firstValue;
   late String secondValue;
   var firstController = TextEditingController();
@@ -32,11 +32,31 @@ class _FrequencyConversionState extends State<FrequencyConversion> {
 
   //functions
   void createDropdownItems() {
-    for (dynamic unit in frequencyUnits) {
-      dropdownItems.add(DropdownMenuItem(
-        child: Text(unit),
-        value: unit,
-      ));
+    print(widget.unit);
+    if (widget.unit == 'Length') {
+      dropdownItems.addAll(dropdownGenerator.createLengthitems());
+      firstUnit = 'Milimeter';
+      secondUnit = 'Centimeter';
+    } else if (widget.unit == 'Mass') {
+      dropdownItems.addAll(dropdownGenerator.createMassItems());
+      firstUnit = 'Miligram';
+      secondUnit = 'Kilogram';
+    } else if (widget.unit == 'Temperature') {
+      dropdownItems.addAll(dropdownGenerator.createTemperatureItems());
+      firstUnit = 'Celsius';
+      secondUnit = 'Fahrenheit';
+    } else if (widget.unit == 'Speed') {
+      dropdownItems.addAll(dropdownGenerator.createSpeedItems());
+      firstUnit = 'Foot per second';
+      secondUnit = 'Meter per second';
+    } else if (widget.unit == 'Frequency') {
+      dropdownItems.addAll(dropdownGenerator.createFrequencyItems());
+      firstUnit = 'Hertz';
+      secondUnit = 'Kilohertz';
+    } else if (widget.unit == 'Digital Storage') {
+      dropdownItems.addAll(dropdownGenerator.createStorageItems());
+      firstUnit = 'Byte';
+      secondUnit = 'Kilobyte';
     }
   }
 
@@ -63,7 +83,10 @@ class _FrequencyConversionState extends State<FrequencyConversion> {
           appBar: AppBar(
             leading: BackButton(
               onPressed: () {
+                // firstUnit = '';
+                // secondUnit = '';
                 dropdownItems.clear();
+                print(dropdownItems);
                 Navigator.pop(context);
               },
             ),
@@ -121,6 +144,7 @@ class _FrequencyConversionState extends State<FrequencyConversion> {
                           input: firstValue,
                           unit1: firstUnit,
                           unit2: secondUnit);
+                      secondValue = secondController.text;
                     });
                   },
                 ),
@@ -161,12 +185,15 @@ class _FrequencyConversionState extends State<FrequencyConversion> {
                   items: dropdownItems,
                   onChanged: (dynamic value) {
                     setState(() {
+                      print('firstValue: $firstValue');
+
                       secondUnit = value;
                       secondController.text = converterCalculator.convert(
                           unitOfMeasure: widget.unit,
                           input: firstValue,
                           unit1: firstUnit,
                           unit2: secondUnit);
+                      firstValue = firstController.text;
                     });
                   },
                 ),

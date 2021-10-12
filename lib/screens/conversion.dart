@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:simple_converter/classes/icons_button.dart' as icon_button;
 
 //imported screens
-import 'package:simple_converter/screens/length_conversion.dart';
-import 'package:simple_converter/screens/temperature_conversion.dart';
-import 'package:simple_converter/screens/mass_conversion.dart';
-import 'package:simple_converter/screens/speed_conversion.dart';
-import 'package:simple_converter/screens/frequency_conversion.dart';
-import 'package:simple_converter/screens/storage_conversion.dart';
+// import 'package:simple_converter/screens/length_conversion.dart';
+// import 'package:simple_converter/screens/temperature_conversion.dart';
+// import 'package:simple_converter/screens/mass_conversion.dart';
+// import 'package:simple_converter/screens/speed_conversion.dart';
+// import 'package:simple_converter/screens/frequency_conversion.dart';
+// import 'package:simple_converter/screens/storage_conversion.dart';
+import 'package:simple_converter/screens/input_page.dart';
 
 class Conversion extends StatelessWidget {
   const Conversion({Key? key}) : super(key: key);
@@ -45,8 +46,7 @@ class Conversion extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              LengthConversion(unit: 'Length'),
+                          builder: (context) => InputPage(unit: 'Length'),
                         ),
                       );
                     },
@@ -59,8 +59,7 @@ class Conversion extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              TemperatureConversion(unit: 'Temperature'),
+                          builder: (context) => InputPage(unit: 'Temperature'),
                         ),
                       );
                     },
@@ -80,7 +79,7 @@ class Conversion extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MassConversion(unit: 'Mass'),
+                          builder: (context) => InputPage(unit: 'Mass'),
                         ),
                       );
                     },
@@ -93,7 +92,7 @@ class Conversion extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SpeedConversion(unit: 'Speed'),
+                          builder: (context) => InputPage(unit: 'Speed'),
                         ),
                       );
                     },
@@ -113,8 +112,7 @@ class Conversion extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              FrequencyConversion(unit: 'Frequency'),
+                          builder: (context) => InputPage(unit: 'Frequency'),
                         ),
                       );
                     },
@@ -128,7 +126,7 @@ class Conversion extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              StorageConversion(unit: 'Digital Storage'),
+                              InputPage(unit: 'Digital Storage'),
                         ),
                       );
                     },

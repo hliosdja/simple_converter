@@ -28,7 +28,6 @@ class ConverterCalculator {
 
     conversionInput = input == '-' ? 0 : double.parse(input);
 
-    debugPrint('convert function called');
     return computeConversion(
         unitOfmeasure: unitOfMeasure,
         topUnit: unit1,

@@ -4,32 +4,25 @@ class Temperature {
     if
         //Celsius
         (unit1 == 'Celsius' && unit2 == 'Fahrenheit') {
-      print('entered Celsius condition');
-      return ((input * 9 / 5) + 32).toString();
+      return ((input * 9 / 5) + 32).toStringAsFixed(20);
     } else if (unit1 == 'Celsius' && unit2 == 'Kelvin') {
-      print('entered Celsius condition');
-      return (input + 273.15).toString();
+      return (input + 273.15).toStringAsFixed(20);
     }
     //Fahrenheit
     else if (unit1 == 'Fahrenheit' && unit2 == 'Celsius') {
-      print('entered Fahrenheit condition');
-      return ((input - 32) * 5 / 9).toString();
+      return ((input - 32) * 5 / 9).toStringAsFixed(20);
     } else if (unit1 == 'Fahrenheit' && unit2 == 'Kelvin') {
-      print('entered Fahrenheit condition');
-      return ((input - 32) * 5 / 9 + 273.15).toString();
+      return ((input - 32) * 5 / 9 + 273.15).toStringAsFixed(20);
     }
     //Kelvin
     else if (unit1 == 'Kelvin' && unit2 == 'Celsius') {
-      print('entered Kelvin condition');
-      return (input - 273.15).toString();
+      return (input - 273.15).toStringAsFixed(20);
     } else if (unit1 == 'Kelvin' && unit2 == 'Fahrenheit') {
-      print('entered Kelvin condition');
-      return ((input - 273.15) * 9 / 5 + 32).toString();
+      return ((input - 273.15) * 9 / 5 + 32).toStringAsFixed(20);
     }
     //default
     else {
-      print('entered default condition');
-      return input.toString();
+      return input.toStringAsFixed(20);
     }
   }
 }
