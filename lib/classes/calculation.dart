@@ -6,6 +6,7 @@ import 'package:simple_converter/classes/mass.dart';
 import 'package:simple_converter/classes/speed.dart';
 import 'package:simple_converter/classes/frequency.dart';
 
+//initialization
 Length length = Length();
 Temperature temp = Temperature();
 Mass mass = Mass();
@@ -19,12 +20,11 @@ class ConverterCalculator {
       required String input,
       required String unit1,
       required String unit2}) {
-    double conversionInput;
+    double conversionInput = 0;
 
     if (input.isEmpty) {
       return input;
     }
-
     conversionInput = input == '-' ? 0 : double.parse(input);
 
     return computeConversion(

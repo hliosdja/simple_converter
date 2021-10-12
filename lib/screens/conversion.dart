@@ -2,14 +2,6 @@ import 'package:flutter/material.dart';
 
 //custom import
 import 'package:simple_converter/classes/icons_button.dart' as icon_button;
-
-//imported screens
-// import 'package:simple_converter/screens/length_conversion.dart';
-// import 'package:simple_converter/screens/temperature_conversion.dart';
-// import 'package:simple_converter/screens/mass_conversion.dart';
-// import 'package:simple_converter/screens/speed_conversion.dart';
-// import 'package:simple_converter/screens/frequency_conversion.dart';
-// import 'package:simple_converter/screens/storage_conversion.dart';
 import 'package:simple_converter/screens/input_page.dart';
 
 class Conversion extends StatelessWidget {

@@ -33,20 +33,20 @@ class _InputPageState extends State<InputPage> {
   void createDropdownItems() {
     if (widget.unit == 'Length') {
       dropdownItems.addAll(dropdownGenerator.createLengthitems());
-      firstUnit = 'Milimeter';
+      firstUnit = 'Meter';
       secondUnit = 'Centimeter';
     } else if (widget.unit == 'Mass') {
       dropdownItems.addAll(dropdownGenerator.createMassItems());
-      firstUnit = 'Miligram';
-      secondUnit = 'Kilogram';
+      firstUnit = 'Kilogram';
+      secondUnit = 'Gram';
     } else if (widget.unit == 'Temperature') {
       dropdownItems.addAll(dropdownGenerator.createTemperatureItems());
       firstUnit = 'Celsius';
       secondUnit = 'Fahrenheit';
     } else if (widget.unit == 'Speed') {
       dropdownItems.addAll(dropdownGenerator.createSpeedItems());
-      firstUnit = 'Foot per second';
-      secondUnit = 'Meter per second';
+      firstUnit = 'Meter per second';
+      secondUnit = 'Kilometer per hour';
     } else if (widget.unit == 'Frequency') {
       dropdownItems.addAll(dropdownGenerator.createFrequencyItems());
       firstUnit = 'Hertz';
