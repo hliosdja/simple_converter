@@ -21,7 +21,6 @@ class TemperatureConversion extends StatefulWidget {
 class _TemperatureConversionState extends State<TemperatureConversion> {
   //variables
   List<DropdownMenuItem> dropdownItems = [];
-  List<dynamic> list = [];
   late String firstUnit = 'Celsius';
   late String secondUnit = 'Fahrenheit';
   String unitHeader = '';
@@ -95,6 +94,7 @@ class _TemperatureConversionState extends State<TemperatureConversion> {
                           input: firstValue,
                           unit1: firstUnit,
                           unit2: secondUnit);
+                      secondValue = secondController.text;
                     });
                   },
                   decoration: InputDecoration(
@@ -120,6 +120,7 @@ class _TemperatureConversionState extends State<TemperatureConversion> {
                           input: firstValue,
                           unit1: firstUnit,
                           unit2: secondUnit);
+                      secondValue = secondController.text;
                     });
                   },
                 ),
@@ -140,6 +141,7 @@ class _TemperatureConversionState extends State<TemperatureConversion> {
                           input: secondValue,
                           unit1: secondUnit,
                           unit2: firstUnit);
+                      firstValue = firstController.text;
                     });
                   },
                   decoration: InputDecoration(
@@ -159,12 +161,15 @@ class _TemperatureConversionState extends State<TemperatureConversion> {
                   items: dropdownItems,
                   onChanged: (dynamic value) {
                     setState(() {
+                      print('firstValue: $firstValue');
+
                       secondUnit = value;
                       secondController.text = converterCalculator.convert(
                           unitOfMeasure: widget.unit,
                           input: firstValue,
                           unit1: firstUnit,
                           unit2: secondUnit);
+                      firstValue = firstController.text;
                     });
                   },
                 ),

@@ -95,6 +95,7 @@ class _FrequencyConversionState extends State<FrequencyConversion> {
                           input: firstValue,
                           unit1: firstUnit,
                           unit2: secondUnit);
+                      secondValue = secondController.text;
                     });
                   },
                   decoration: InputDecoration(
@@ -140,6 +141,7 @@ class _FrequencyConversionState extends State<FrequencyConversion> {
                           input: secondValue,
                           unit1: secondUnit,
                           unit2: firstUnit);
+                      firstValue = firstController.text;
                     });
                   },
                   decoration: InputDecoration(

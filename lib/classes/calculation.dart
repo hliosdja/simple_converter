@@ -20,11 +20,13 @@ class ConverterCalculator {
       required String unit1,
       required String unit2}) {
     double conversionInput;
+
+    print('input: $input');
     if (input.isEmpty) {
       return input;
-    } else {
-      conversionInput = double.parse(input);
     }
+
+    conversionInput = input == '-' ? 0 : double.parse(input);
 
     debugPrint('convert function called');
     return computeConversion(
