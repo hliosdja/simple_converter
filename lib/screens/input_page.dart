@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:simple_converter/constants/units.dart';
 import 'package:simple_converter/classes/calculation.dart';
 import 'package:simple_converter/constants/dropdown_handler.dart';
 
@@ -32,7 +31,6 @@ class _InputPageState extends State<InputPage> {
 
   //functions
   void createDropdownItems() {
-    print(widget.unit);
     if (widget.unit == 'Length') {
       dropdownItems.addAll(dropdownGenerator.createLengthitems());
       firstUnit = 'Milimeter';
@@ -83,10 +81,7 @@ class _InputPageState extends State<InputPage> {
           appBar: AppBar(
             leading: BackButton(
               onPressed: () {
-                // firstUnit = '';
-                // secondUnit = '';
                 dropdownItems.clear();
-                print(dropdownItems);
                 Navigator.pop(context);
               },
             ),
@@ -185,8 +180,6 @@ class _InputPageState extends State<InputPage> {
                   items: dropdownItems,
                   onChanged: (dynamic value) {
                     setState(() {
-                      print('firstValue: $firstValue');
-
                       secondUnit = value;
                       secondController.text = converterCalculator.convert(
                           unitOfMeasure: widget.unit,

@@ -13,7 +13,6 @@ class DropdownGenerator {
 
   Iterable<DropdownMenuItem> createTemperatureItems() {
     return temperatureUnits.map((String value) {
-      print(value);
       return DropdownMenuItem(
         child: Text(value),
         value: value,

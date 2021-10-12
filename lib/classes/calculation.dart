@@ -21,7 +21,6 @@ class ConverterCalculator {
       required String unit2}) {
     double conversionInput;
 
-    print('input: $input');
     if (input.isEmpty) {
       return input;
     }
