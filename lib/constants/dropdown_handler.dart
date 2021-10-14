@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:simple_converter/constants/units.dart';
 
 class DropdownGenerator {
+  //length
   Iterable<DropdownMenuItem> createLengthitems() {
     return lengthUnits.map((String value) {
       return DropdownMenuItem(
@@ -11,6 +12,7 @@ class DropdownGenerator {
     });
   }
 
+  //temp
   Iterable<DropdownMenuItem> createTemperatureItems() {
     return temperatureUnits.map((String value) {
       return DropdownMenuItem(
@@ -20,6 +22,7 @@ class DropdownGenerator {
     });
   }
 
+  //mass
   Iterable<DropdownMenuItem> createMassItems() {
     return massUnits.map((String value) {
       return DropdownMenuItem(
@@ -29,6 +32,7 @@ class DropdownGenerator {
     });
   }
 
+  //speed
   Iterable<DropdownMenuItem> createSpeedItems() {
     return speedUnits.map((String value) {
       return DropdownMenuItem(
@@ -38,6 +42,7 @@ class DropdownGenerator {
     });
   }
 
+  //frequency
   Iterable<DropdownMenuItem> createFrequencyItems() {
     return frequencyUnits.map((String value) {
       return DropdownMenuItem(
@@ -47,6 +52,7 @@ class DropdownGenerator {
     });
   }
 
+  //storage
   Iterable<DropdownMenuItem> createStorageItems() {
     return storageUnits.map((String value) {
       return DropdownMenuItem(

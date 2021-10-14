@@ -30,6 +30,7 @@ class Conversion extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  // Length
                   icon_button.IconButton(
                     icon: Icons.straighten_sharp,
                     label: 'Length',
@@ -43,6 +44,8 @@ class Conversion extends StatelessWidget {
                       );
                     },
                   ),
+
+                  //Temperature
                   icon_button.IconButton(
                     icon: Icons.thermostat_sharp,
                     label: 'Temperature',
@@ -63,6 +66,7 @@ class Conversion extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  //Mass
                   icon_button.IconButton(
                     icon: Icons.monitor_weight_sharp,
                     label: 'Mass',
@@ -76,6 +80,8 @@ class Conversion extends StatelessWidget {
                       );
                     },
                   ),
+
+                  //Speed
                   icon_button.IconButton(
                     icon: Icons.speed,
                     label: 'Speed',
@@ -96,6 +102,7 @@ class Conversion extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  //Frequency
                   icon_button.IconButton(
                     icon: Icons.bolt_sharp,
                     label: 'Frequency',
@@ -109,6 +116,8 @@ class Conversion extends StatelessWidget {
                       );
                     },
                   ),
+
+                  //Storage
                   icon_button.IconButton(
                     icon: Icons.storage_sharp,
                     label: 'Digital Storage',
